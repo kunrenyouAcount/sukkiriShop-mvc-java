@@ -18,10 +18,8 @@ Account account = (Account) session.getAttribute("account");
 <label><dl><dt>メールアドレス：</dt><dd><%= account.getMail() %></dd></dl></label>
 <label><dl><dt>氏名：</dt><dd><%= account.getName() %></dd></dl></label>
 <label><dl><dt>年齢：</dt><dd><%= account.getAge() %>歳</dd></dl></label>
-<input type="submit" name="register" value="登録">
-</form>
-<form action="sukkiriShop/RegisterServlet" method="get">
-<input type="submit" name="fix" value="修正">
+<input type="submit" name="btn" value="登録">
+<input type="submit" name="btn" value="修正">
 </form>
 </body>
 </html>

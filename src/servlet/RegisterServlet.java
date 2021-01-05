@@ -20,17 +20,15 @@ public class RegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//リクエストパラメータの取得(どちらかが必ずnull)
 		request.setCharacterEncoding("UTF-8");
-		String register = request.getParameter("register");
-		String fix = request.getParameter("fix");
+		String btn = request.getParameter("btn");
 		HttpSession session = request.getSession();
 
 		//セッションスコープからアカウント情報を取得
 		Account account = (Account) session.getAttribute("account");
 
-		//登録が押されたパターン
 		RequestDispatcher dispatcher = null;
 		//登録が押されたパターン
-		if(register != null) {
+		if(btn.equals("登録")) {
 			//データベースに登録処理を行う
 			RegisterLogic bo = new RegisterLogic();
 			boolean result = bo.execute(account);
@@ -41,7 +39,7 @@ public class RegisterServlet extends HttpServlet {
 				dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerNG.jsp");
 			}
 		//修正が押されたパターン
-		} else if(fix != null) {
+		} else if(btn.equals("修正")) {
 			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerForm.jsp");
 		}
 		dispatcher.forward(request, response);
