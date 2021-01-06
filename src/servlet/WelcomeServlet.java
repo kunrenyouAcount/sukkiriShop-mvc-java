@@ -14,6 +14,7 @@ public class WelcomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//ウェルカム画面をフォワード先に設定し、フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/welcome.jsp");
 		dispatcher.forward(request, response);
 	}

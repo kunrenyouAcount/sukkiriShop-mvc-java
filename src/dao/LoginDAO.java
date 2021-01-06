@@ -10,7 +10,6 @@ import model.Account;
 import model.Login;
 
 public class LoginDAO {
-	//テーブルの内容を取得
 	final String servername = "localhost";
 	final String databasename = "sukkirishop";
 

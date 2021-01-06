@@ -12,7 +12,6 @@ public class Login {
 	public String getUserId() {
 		return userId;
 	}
-
 	public String getPass() {
 		return pass;
 	}
