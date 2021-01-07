@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,11 +31,32 @@ public class RegisterFormServlet extends HttpServlet {
 		String pass = request.getParameter("pass");
 		String mail = request.getParameter("mail");
 		String name = request.getParameter("name");
-		int age = Integer.parseInt(request.getParameter("age"));
+		String ageString = request.getParameter("age");
+		int age = 0;
 
-		if(userId == null || userId.length() == 0) {
-			response.sendRedirect("/sukkiriShop/RegisterFormServlet");
+	//バリデーションチェック(サーバーに送られている時点でjavascriptを通さず不正にアクセスされているため、データの入力情報がリセットされた状態でページを返す
+	//nullチェック
+		if(userId == null || userId.length() < 8) {
+			doGet(request, response);
 		}
+		if(pass == null || pass.length() < 8){
+			doGet(request, response);
+		}
+		if(mail == null || mail.length() == 0){
+			doGet(request, response);
+		}
+		if(name == null || name.length() == 0){
+			doGet(request, response);
+		}
+		if(ageString == null || ageString.length() == 0){
+			doGet(request, response);
+		} else {
+			//nullじゃないならキャスト
+			age = Integer.parseInt(ageString);
+		}
+		String userIdPattern = "^[\\w]+$";
+		Pattern p = Pattern.compile(userIdPattern);
+
 
 		//処理の実行
 		//アカウントクラスにリクエストパラメータで取得したデータを格納し、セッションスコープにデータを保存(登録済みだった場合も入力したデータが消えないように)
