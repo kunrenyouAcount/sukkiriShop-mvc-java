@@ -14,6 +14,7 @@
 <li class="list-group-item p-5"><img src="/sukkiriShop/img/shoppingCart_256.png"/></li>
 <a href="/sukkiriShop/RegisterFormServlet" style="color: white"><li class="list-group-item active">ユーザー登録</li></a>
 <a href="/sukkiriShop/LoginServlet"><li class="list-group-item">ログイン</li></a>
+<a href="/sukkiriShop/ProductListServlet"><li class="list-group-item">商品を見る</li></a>
 </ul>
 </div>
 </body>
