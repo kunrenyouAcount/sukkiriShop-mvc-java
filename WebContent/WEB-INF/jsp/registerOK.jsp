@@ -3,11 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css"  crossorigin="anonymous">
 <meta charset="UTF-8">
-<title>登録完了</title>
+<title>スッキリ商店</title>
 </head>
 <body>
+<div class="container">
+<h1>登録完了</h1>
 <p>登録完了しました</p>
-<a href="/sukkiriShop/WelcomeServlet">トップへ</a>
+<a href="/sukkiriShop/WelcomeServlet"><button class="btn btn-primary">トップへ</button></a>
+</div>
 </body>
 </html>

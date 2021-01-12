@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,6 +19,7 @@ public class RegisterFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//登録フォームにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerForm.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -29,27 +31,53 @@ public class RegisterFormServlet extends HttpServlet {
 		String pass = request.getParameter("pass");
 		String mail = request.getParameter("mail");
 		String name = request.getParameter("name");
-		int age = Integer.parseInt(request.getParameter("age"));
+		String ageString = request.getParameter("age");
+		int age = 0;
+
+	//バリデーションチェック(サーバーに送られている時点でjavascriptを通さず不正にアクセスされているため、データの入力情報がリセットされた状態でページを返す
+	//nullチェック
+		if(userId == null || userId.length() < 8) {
+			doGet(request, response);
+		}
+		if(pass == null || pass.length() < 8){
+			doGet(request, response);
+		}
+		if(mail == null || mail.length() == 0){
+			doGet(request, response);
+		}
+		if(name == null || name.length() == 0){
+			doGet(request, response);
+		}
+		if(ageString == null || ageString.length() == 0){
+			doGet(request, response);
+		} else {
+			//nullじゃないならキャスト
+			age = Integer.parseInt(ageString);
+		}
+		String userIdPattern = "^[\\w]+$";
+		Pattern p = Pattern.compile(userIdPattern);
+
 
 		//処理の実行
+		//アカウントクラスにリクエストパラメータで取得したデータを格納し、セッションスコープにデータを保存(登録済みだった場合も入力したデータが消えないように)
 		Account account = new Account(userId, pass, mail, name, age);
-		RegisterCheckLogic bo = new RegisterCheckLogic();
-		boolean result = bo.execute(account);
-
-		//セッションスコープに情報を保存
 		HttpSession session = request.getSession();
 		session.setAttribute("account", account);
 
+		//登録済かどうかをロジッククラスを実行し確認
+		RegisterCheckLogic bo = new RegisterCheckLogic();
+		boolean result = bo.execute(account);
+
 		RequestDispatcher dispatcher;
-		//登録済みだった場合
+
 		if(result) {
-			//フォワード
+			//登録済みだった場合フォーム画面をフォワード先に設定
 			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerForm.jsp");
-		//未登録の場合、登録可能なので確認画面に遷移
 		} else {
-			//フォワード
-			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/checked.jsp");
+			//未登録の場合、登録可能なので確認画面をフォワード先に設定
+			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/check.jsp");
 		}
+		//フォワード
 		dispatcher.forward(request, response);
 	}
 }
