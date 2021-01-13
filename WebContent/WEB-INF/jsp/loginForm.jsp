@@ -14,14 +14,14 @@
 	<div class="form-group">
 		<label><dl>
 			<dt>ユーザーID：</dt>
-			<dd><input type="text" class="form-control" placeholder="必須項目です" name="userId"></dd>
+			<dd><input type="text" class="form-control" placeholder="必須項目です" name="userId" pattern="^([a-zA-Z0-9]{8,})$"></dd>
 			<%-- <dd><small class="form-text text-muted">※半角で8文字以上で入力してください</small></dd> --%>
 		</dl></label>
 	</div>
 	<div class="form-group">
 		<label><dl>
 			<dt>パスワード：</dt>
-			<dd><input type="password" class="form-control" placeholder="必須項目です" name="pass"></dd>
+			<dd><input type="password" class="form-control" placeholder="必須項目です" name="pass" pattern="^([a-zA-Z0-9]{8,})$"></dd>
 			<%-- <dd><small class="form-text text-muted">※半角で8文字以上で入力してください</small></dd> --%>
 		</dl></label>
 	</div>

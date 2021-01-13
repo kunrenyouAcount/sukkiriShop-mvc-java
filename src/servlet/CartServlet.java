@@ -21,24 +21,26 @@ public class CartServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//リクエストパラメータを取得
-		int selectedProductId = Integer.parseInt(request.getParameter("selectedProduct"));
-
-		HttpSession session = request.getSession();
-		List<Product> selectedProductList;
-		if(session.getAttribute("selectedProductList") == null) {
-			//初めてカートに入れる場合
-			selectedProductList = new ArrayList<>();
-		} else {
-			//カートに入れたものがある場合
-			selectedProductList = (List<Product>) session.getAttribute("selectedProductList");
-		}
-		//その番号に該当する商品を検索
+		int selectedProductId = Integer.parseInt(request.getParameter("selectedProductId"));
+		//その番号に該当する商品をデータベースで検索し、取得
 		ProductListLogic bo = new ProductListLogic();
 		Product product = bo.getOne(selectedProductId);
 
+		//カート内の商品の有無によって新規作成か取得かを処理
+		HttpSession session = request.getSession();
+		List<Product> cart;
+		if(session.getAttribute("cart") == null) {
+			//初めてカートに入れる場合、カートを新規作成
+			cart = new ArrayList<>();
+		} else {
+			//カートに入れたものがある場合、カート情報を取得
+			cart = (List<Product>) session.getAttribute("cart");
+		}
 		//カートに追加
-		selectedProductList.add(product);
-		session.setAttribute("selectedProductList", selectedProductList);
+		cart.add(product);
+		//セッションスコープにカートを格納
+		session.setAttribute("cart", cart);
+		//フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cart.jsp");
 		dispatcher.forward(request, response);
 	}

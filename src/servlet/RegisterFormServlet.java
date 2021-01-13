@@ -48,15 +48,12 @@ public class RegisterFormServlet extends HttpServlet {
 		if(name == null || name.length() == 0){
 			doGet(request, response);
 		}
-		if(ageString == null || ageString.length() == 0){
-			doGet(request, response);
-		} else {
+		if(ageString != null || ageString.length() != 0){
 			//nullじゃないならキャスト
 			age = Integer.parseInt(ageString);
 		}
 		String userIdPattern = "^[\\w]+$";
 		Pattern p = Pattern.compile(userIdPattern);
-
 
 		//処理の実行
 		//アカウントクラスにリクエストパラメータで取得したデータを格納し、セッションスコープにデータを保存(登録済みだった場合も入力したデータが消えないように)
