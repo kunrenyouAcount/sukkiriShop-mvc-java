@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css"  crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>スッキリ商店</title>
-<link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css"  crossorigin="anonymous">
 </head>
 <body>
 <div class="container" >
@@ -78,7 +78,7 @@
 			<dd><small class="form-text text-muted">※任意入力項目です</small></dd>
 		</dl></label>
 	</div>
-	<button type="submit" class="btn btn-primary" onClick="validationCheck();">確認</button>
+	<button type="submit" class="btn btn-primary">確認</button>
 </form>
 <a href="/sukkiriShop/WelcomeServlet"><button class="btn btn-secondary" style="color: white">トップへ</button></a>
 </div>

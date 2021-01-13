@@ -54,7 +54,7 @@ public class ProductListDAO {
 		//データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SELECT文を準備
-			String sql = "select product_id, product_name,  product_price, product_count, product_description from product where ?";
+			String sql = "select product_id, product_name,  product_price, product_count, product_description from product where product_id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, product_id);
 
