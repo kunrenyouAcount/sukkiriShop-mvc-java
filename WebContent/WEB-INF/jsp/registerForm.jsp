@@ -59,7 +59,7 @@
 	<div class="form-group">
 		<label><dl>
 			<dt>氏名：</dt>
-			<dd><input type="text" class="form-control" placeholder="必須項目です" name="name" id="name" pattern=""></dd>
+			<dd><input type="text" class="form-control" placeholder="必須項目です" name="name" id="name"></dd>
 			<dd><small class="form-text text-muted">例）山田　太郎</small></dd>
 		</dl></label>
 	</div>
