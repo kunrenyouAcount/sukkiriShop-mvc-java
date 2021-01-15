@@ -15,10 +15,10 @@ Product product = (Product) request.getAttribute("product");
 <div class="container">
 <h1><%= product.getName() %></h1>
 <dl><dt>商品説明：</dt><dd><%= product.getDescription() %></dd></dl>
-<form action="/sukkiriShop/CartServlet" method="post">
-<h4>価格：<%= product.getPrice() %>円</h4>
-<h5>小計：<span id="calc_price"></span></h5>
-<select name="count" onChange="selectChange()" id="count">
+<form name="form1" action="/sukkiriShop/CartServlet?selectedProductId=<%= product.getId() %>" method="post">
+<p class="mb-2">単価：<%= product.getPrice() %>円</p>
+<h4 class="mb-2">小計：<span id="sum_price" name="sum_price"></span>円</h4>
+<select name="selected_count" onChange="countChange()">
 <% for(int i = 1; i<=product.getCount(); i++) { %>
 	<option value="<%= i %>"><%= i %></option>
 <% } %>
@@ -28,10 +28,10 @@ Product product = (Product) request.getAttribute("product");
 <a href="/sukkiriShop/ProductListServlet"><button class="btn btn-secondary">商品一覧に戻る</button></a>
 </div>
 <script>
-let price = document.getElmentById('calc_price');
-let count = document.getElmentById('count');
-function selectChange(){
-	price.textContent = <%= product.getPrice() %> * count;
+document.getElementById('sum_price').textContent =<%= product.getPrice() %> * 1;
+function countChange(){
+	let count = document.form1.selected_count.selectedIndex;
+	document.getElementById('sum_price').textContent =<%= product.getPrice() %> * parseInt(count+1);
 }
 </script>
 </body>

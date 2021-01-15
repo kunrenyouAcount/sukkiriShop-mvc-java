@@ -14,11 +14,24 @@ List<Product> productList = (List<Product>) request.getAttribute("productList");
 <body>
 <div class="container">
 <h1>商品一覧</h1>
-<ul class="list-group">
+<table class="table">
+	<thead>
+	    <tr>
+	      <th scope="col">商品名</th>
+	      <th scope="col">単価</th>
+	      <th scope="col">商品数</th>
+	    </tr>
+  </thead>
+  <tbody>
 <% for(Product product: productList) { %>
-	<a href="/sukkiriShop/ProductViewServlet?selectedProductId=<%= product.getId()%>"><li class="list-group-item">・商品名：<%= product.getName() %>/価格：<%= product.getPrice() %></li></a>
+			<tr>
+					<td><a href="/sukkiriShop/ProductViewServlet?selectedProductId=<%= product.getId()%>"><%= product.getName() %></a></td>
+					<td><%= product.getPrice() %></td>
+					<td><%= product.getCount() %></td>
+			</tr>
 <% } %>
-</ul>
+	</tbody>
+</table>
 </div>
 </body>
 </html>
