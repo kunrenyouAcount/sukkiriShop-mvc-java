@@ -22,9 +22,11 @@ public class CartServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//リクエストパラメータを取得
 		int selectedProductId = Integer.parseInt(request.getParameter("selectedProductId"));
+		int selected_count = Integer.parseInt(request.getParameter("selected_count"));
 		//その番号に該当する商品をデータベースで検索し、取得
 		ProductListLogic bo = new ProductListLogic();
 		Product product = bo.getOne(selectedProductId);
+		product.setCount(selected_count);
 
 		//カート内の商品の有無によって新規作成か取得かを処理
 		HttpSession session = request.getSession();

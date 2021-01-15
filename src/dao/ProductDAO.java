@@ -10,7 +10,8 @@ import java.util.List;
 
 import model.Product;
 
-public class ProductListDAO {
+//productテーブルを操作するためのDAOクラス
+public class ProductDAO {
 	final String servername = "localhost";
 	final String databasename = "sukkirishop";
 
@@ -77,5 +78,33 @@ public class ProductListDAO {
 		}
 		//見つかったユーザーまたはnullを返す
 		return product;
+	}
+
+	public boolean subtractionProduct(List<Product> cart) {
+		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+			int result = 0;
+			for(Product product: cart) {
+				//SELECT文を準備
+				String sql = "update product set product_count = (select product_count from product where product_id = ?) - ? where product_id = ?";
+				//セレクト文をプリペアに格納
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+				//SQL文を完成
+				pStmt.setInt(1, product.getId());
+				pStmt.setInt(2, product.getCount());
+				pStmt.setInt(3, product.getId());
+				//SELECT文を実行し、結果表を取得
+				result += pStmt.executeUpdate();
+			}
+			if(result != cart.size()) {
+			//カートに入っている種類分変更されていなければfalseを返す
+				return false;
+			}
+		} catch (SQLException e) {
+		//実行中にエラーが起きた場合もfalseを返す
+			e.printStackTrace();
+			return false;
+		}
+		//上記以外は成功と見なし、trueを返す
+		return true;
 	}
 }
