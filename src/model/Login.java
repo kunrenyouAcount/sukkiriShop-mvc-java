@@ -1,18 +1,19 @@
 package model;
 
 public class Login {
-	private String userId;
-	private String pass;
+	private String userID;
+	private String userPass;
 
-	public Login(String userId, String pass) {
-		this.userId = userId;
-		this.pass = pass;
+	public Login() {}
+	public Login(String userID, String userPass) {
+		this.userID = userID;
+		this.userPass = userPass;
 	}
 
-	public String getUserId() {
-		return userId;
+	public String getUserID() {
+		return userID;
 	}
-	public String getPass() {
-		return pass;
+	public String getUserPass() {
+		return userPass;
 	}
 }

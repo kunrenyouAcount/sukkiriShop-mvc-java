@@ -1,6 +1,6 @@
 package model;
 
-import dao.AccountDAO;
+import dao.UserDAO;
 
 public class LoginLogic {
 	public boolean execute(Login login) {
@@ -8,8 +8,8 @@ public class LoginLogic {
 		//「アカウントがnullじゃない」→「入力したアカウントが有」→「ログイン可能」(true)、
 		//「アカウントがnull」→「入力したアカウントが無」→「ログイン不可」(false)
 		//を返す
-		AccountDAO dao = new AccountDAO();
-		Account account = dao.findByLogin(login);
-		return account != null;
+		UserDAO dao = new UserDAO();
+		User user = dao.findByLogin(login);
+		return user != null;
 	}
 }

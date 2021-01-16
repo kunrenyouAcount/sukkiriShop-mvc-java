@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css"  crossorigin="anonymous">
+<link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css">
+<link rel="stylesheet" href="/sukkiriShop/css/style.css">
 <meta charset="UTF-8">
 <title>スッキリ商店</title>
 </head>

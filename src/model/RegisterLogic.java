@@ -1,12 +1,12 @@
 package model;
 
-import dao.AccountDAO;
+import dao.UserDAO;
 
 public class RegisterLogic {
-	public boolean execute(Account account) {
+	public boolean execute(User user) {
 		//データベースにアクセスするためのDAOクラスをインスタンス化し、処理結果をboolean型で返す
-		AccountDAO dao = new AccountDAO();
-		boolean result = dao.registerAccount(account);
+		UserDAO dao = new UserDAO();
+		boolean result = dao.registerUser(user);
 		return result;
 	}
 }
