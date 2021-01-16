@@ -18,14 +18,14 @@ public class ProductViewServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//リクエストパラメータを取得
-		int productId = Integer.parseInt(request.getParameter("selectedProductId"));
+		int selectedProductID = Integer.parseInt(request.getParameter("selectedProductID"));
 
 		//idで検索をかけて商品情報を取得
 		ProductListLogic bo = new ProductListLogic();
-		Product product = bo.getOne(productId);
+		Product selectedProduct = bo.getOne(selectedProductID);
 
 		//取得した商品情報をリクエストスコープに格納
-		request.setAttribute("product", product);
+		request.setAttribute("selectedProduct", selectedProduct);
 
 		//フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/productView.jsp");

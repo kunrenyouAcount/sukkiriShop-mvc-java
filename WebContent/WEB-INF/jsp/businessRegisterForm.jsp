@@ -5,18 +5,18 @@
 <head>
 <link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css">
 <link rel="stylesheet" href="/sukkiriShop/css/style.css">
-<link rel="stylesheet" href="/sukkiriShop/css/general.css">
+<link rel="stylesheet" href="/sukkiriShop/css/business.css">
 <meta charset="UTF-8">
 <title>スッキリ商店</title>
 </head>
 <body>
 <div class="container" >
-<h1>ユーザー登録</h1>
-<form action="/sukkiriShop/RegisterFormServlet" method="post" class="blueborder">
+<h1>ビジネスユーザー登録</h1>
+<form action="/sukkiriShop/BusinessRegisterFormServlet" method="post" class="greenborder">
 	<div class="form-group">
 		<label><dl>
-			<dt>ユーザーID：</dt>
-			<dd><input type="text" class="form-control" placeholder="必須項目です" name="userID" pattern="^([a-zA-Z0-9]{8,})$"></dd>
+			<dt>ビジネスID：</dt>
+			<dd><input type="text" class="form-control" placeholder="必須項目です" name="businessID" pattern="^([a-zA-Z0-9]{8,})$"></dd>
 			<dd>
 			<small class="form-text text-muted">
 				・文字数<br />
@@ -34,7 +34,7 @@
 	<div class="form-group">
 		<label><dl>
 			<dt>パスワード：</dt>
-			<dd><input type="password" class="form-control" placeholder="必須項目です" name="userPass" pattern="^([a-zA-Z0-9]{8,})$"></dd>
+			<dd><input type="password" class="form-control" placeholder="必須項目です" name="businessPass" pattern="^([a-zA-Z0-9]{8,})$"></dd>
 			<dd>
 			<small class="form-text text-muted">
 				・文字数<br />
@@ -53,27 +53,20 @@
 	<div class="form-group">
 	    <label><dl>
 	    	<dt>メールアドレス</dt>
-		    <dd><input type="email" class="form-control" placeholder="必須項目です" name="userMail" pattern="^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$"></dd>
+		    <dd><input type="email" class="form-control" placeholder="必須項目です" name="businessMail" pattern="^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$"></dd>
 		    <dd><small class="form-text text-muted"><b>※半角で入力してください</b></small></dd>
 		</dl></label>
 	</div>
 	<div class="form-group">
 		<label><dl>
-			<dt>氏名：</dt>
-			<dd><input type="text" class="form-control" placeholder="必須項目です" name="userName"></dd>
-			<dd><small class="form-text text-muted">例）山田　太郎</small></dd>
-		</dl></label>
-	</div>
-	<div class="form-group">
-		<label><dl>
-			<dt>住所：</dt>
-			<dd><Input type="text" class="form-control" placeholder="必須項目です" name="userAddress"></dd>
-			<dd><small class="form-text text-muted">※都道府県から入力してください</small></dd>
+			<dt>会社名：</dt>
+			<dd><input type="text" class="form-control" placeholder="必須項目です" name="businessName"></dd>
+			<dd><small class="form-text text-muted">例）（株）とぴあ</small></dd>
 		</dl></label>
 	</div>
 	<button type="submit" class="btn btn-primary">確認</button>
 </form>
-<a href="/sukkiriShop/WelcomeServlet"><button class="btn btn-secondary" style="color: white">トップへ</button></a>
+<a href="/sukkiriShop/BusinessWelcomeServlet"><button class="btn btn-secondary" style="color: white">トップへ</button></a>
 </div>
 </body>
 </html>

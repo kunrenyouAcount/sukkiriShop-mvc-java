@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Account;
 import model.RegisterLogic;
+import model.User;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
@@ -24,14 +24,14 @@ public class RegisterServlet extends HttpServlet {
 
 		//セッションスコープからアカウント情報を取得
 		HttpSession session = request.getSession();
-		Account account = (Account) session.getAttribute("account");
+		User user = (User) session.getAttribute("user");
 
 		RequestDispatcher dispatcher = null;
 		if(btn.equals("register")) {
 		//登録が押されたパターン
 			//データベースに登録処理を行う
 			RegisterLogic bo = new RegisterLogic();
-			boolean result = bo.execute(account);
+			boolean result = bo.execute(user);
 			if(result) {
 				//登録完了画面をフォワード先に設定
 				dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerOK.jsp");

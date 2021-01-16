@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 3rem !important;
+}
+
+dd {
+	margin-inline-start: 40px;
+}
+
+form {
+	border: 1px solid #dee2e6;
+	padding: 1rem ;
+	margin-bottom: 1rem ;
+}
+
+.noborder {
+  border: 0px none;
+}
+
+.container {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+}

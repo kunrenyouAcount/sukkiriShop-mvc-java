@@ -1,4 +1,3 @@
-/*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
@@ -75,7 +74,7 @@ hr {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  margin-bottom: 3rem !important;
+  margin-bottom: 0.5rem;
 }
 
 p {
@@ -120,6 +119,7 @@ dt {
 
 dd {
   margin-bottom: .5rem;
+  margin-left: 0;
 }
 
 blockquote {
@@ -189,13 +189,6 @@ pre {
 
 figure {
   margin: 0 0 1rem;
-}
-
-form {
-	border: 1px solid #dee2e6 !important;
-	border-color: #007bff !important;
-	padding: 1rem !important;
-	margin-bottom: 1rem !important;
 }
 
 img {
@@ -357,10 +350,6 @@ template {
 
 [hidden] {
   display: none !important;
-}
-
-.noborder {
-  border: 0px none;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -555,8 +544,6 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 3rem !important;
-  margin-bottom: 3rem !important;
 }
 
 @media (min-width: 576px) {
@@ -10255,9 +10242,6 @@ a.text-dark:hover, a.text-dark:focus {
   }
   .container {
     min-width: 992px !important;
-    margin-top: 3rem !important;
-    margin-bottom: 3rem !important;
-
   }
   .navbar {
     display: none;
@@ -10289,8 +10273,5 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
-}
-#fix {
-	color: white;
 }
 /*# sourceMappingURL=bootstrap.css.map */

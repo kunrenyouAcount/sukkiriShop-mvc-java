@@ -7,7 +7,8 @@ List<Product> productList = (List<Product>) request.getAttribute("productList");
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css"  crossorigin="anonymous">
+<link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css">
+<link rel="stylesheet" href="/sukkiriShop/css/style.css">
 <meta charset="UTF-8">
 <title>スッキリ商店</title>
 </head>
@@ -25,9 +26,9 @@ List<Product> productList = (List<Product>) request.getAttribute("productList");
   <tbody>
 <% for(Product product: productList) { %>
 			<tr>
-					<td><a href="/sukkiriShop/ProductViewServlet?selectedProductId=<%= product.getId()%>"><%= product.getName() %></a></td>
-					<td><%= product.getPrice() %></td>
-					<td><%= product.getCount() %></td>
+					<td><a href="/sukkiriShop/ProductViewServlet?selectedProductID=<%= product.getProductID()%>"><%= product.getProductName() %></a></td>
+					<td><%= product.getProductPrice() %></td>
+					<td><%= product.getProductCount() %></td>
 			</tr>
 <% } %>
 	</tbody>

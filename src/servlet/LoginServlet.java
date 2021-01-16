@@ -26,11 +26,11 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//リクエストパラメータの取得
 		request.setCharacterEncoding("UTF-8");
-		String userId = request.getParameter("userId");
-		String pass = request.getParameter("pass");
+		String userID = request.getParameter("userID");
+		String userPass = request.getParameter("userPass");
 
 		//ログインクラスに上記で取得したデータを格納し、ロジッククラスを実行
-		Login login = new Login(userId, pass);
+		Login login = new Login(userID, userPass);
 		LoginLogic bo = new LoginLogic();
 		boolean result = bo.execute(login);
 
@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 			//ログイン成功時
 			//セッションスコープにユーザーIDを保存
 			HttpSession session = request.getSession();
-			session.setAttribute("userId", userId);
+			session.setAttribute("userID", userID);
 			//ログイン完了画面にフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/loginOK.jsp");
 			dispatcher.forward(request, response);

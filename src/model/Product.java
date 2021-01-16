@@ -3,53 +3,49 @@ package model;
 import java.io.Serializable;
 
 public class Product implements Serializable {
-	private int id;
-	private String name;
-	private int price;
-	private int count;
-	private String description;
+	private int productID;
+	private String productName;
+	private int productPrice;
+	private int productCount;
+	private String productDescription;
 
 	public Product() {}
-	public Product(int id, String name, int price, int count, String description) {
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.count = count;
-		this.description = description;
+	public Product(int productID, String productName, int productPrice, int productCount, String productDescription) {
+		this.productID = productID;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.productCount = productCount;
+		this.productDescription = productDescription;
 	}
 
-	public int getId() {
-		return id;
+	public int getProductID() {
+		return productID;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setProductID(int productID) {
+		this.productID = productID;
 	}
-
-	public String getName() {
-		return name;
+	public String getProductName() {
+		return productName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
-
-	public int getPrice() {
-		return price;
+	public int getProductPrice() {
+		return productPrice;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setProductPrice(int productPrice) {
+		this.productPrice = productPrice;
 	}
-
-	public int getCount() {
-		return count;
+	public int getProductCount() {
+		return productCount;
 	}
-	public void setCount(int count) {
-		this.count = count;
+	public void setProductCount(int productCount) {
+		this.productCount = productCount;
 	}
-
-	public String getDescription() {
-		return description;
+	public String getProductDescription() {
+		return productDescription;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
 	}
 }

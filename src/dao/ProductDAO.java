@@ -25,7 +25,7 @@ public class ProductDAO {
 		//データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SELECT文を準備
-			String sql = "select product_id, product_name,  product_price, product_count, product_description from product";
+			String sql = "select productID, productName,  productPrice, productCount, productDescription from product";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//SELECT文を実行し、結果表を取得
@@ -34,12 +34,12 @@ public class ProductDAO {
 			//一致したユーザーが存在した場合そのユーザーを表すAccountインスタンスを生成
 			while (rs.next()) {
 				//結果表からデータを取得
-				int id = rs.getInt("product_id");
-				String name = rs.getString("product_name");
-				int price = rs.getInt("product_price");
-				int count = rs.getInt("product_count");
-				String description = rs.getString("product_description");
-				Product product = new Product(id, name, price, count, description);
+				int productID = rs.getInt("productID");
+				String productName = rs.getString("productName");
+				int productPrice = rs.getInt("productPrice");
+				int productCount = rs.getInt("productCount");
+				String productDescription = rs.getString("productDescription");
+				Product product = new Product(productID, productName, productPrice, productCount, productDescription);
 				productList.add(product);
 			}
 		} catch (SQLException e) {
@@ -50,14 +50,14 @@ public class ProductDAO {
 		return productList;
 	}
 
-	public Product getOne(int product_id) {
+	public Product getOne(int selectedProductID) {
 		Product product = null;
 		//データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SELECT文を準備
-			String sql = "select product_id, product_name,  product_price, product_count, product_description from product where product_id = ?";
+			String sql = "select productID, productName,  productPrice, productCount, productDescription from product where productID = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setInt(1, product_id);
+			pStmt.setInt(1, selectedProductID);
 
 			//SELECT文を実行し、結果表を取得
 			ResultSet rs = pStmt.executeQuery();
@@ -65,12 +65,12 @@ public class ProductDAO {
 			//一致したユーザーが存在した場合そのユーザーを表すAccountインスタンスを生成
 			if (rs.next()) {
 				//結果表からデータを取得
-				int id = rs.getInt("product_id");
-				String name = rs.getString("product_name");
-				int price = rs.getInt("product_price");
-				int count = rs.getInt("product_count");
-				String description = rs.getString("product_description");
-				product = new Product(id, name, price, count, description);
+				int productID = rs.getInt("productID");
+				String productName = rs.getString("productName");
+				int productPrice = rs.getInt("productPrice");
+				int productCount = rs.getInt("productCount");
+				String productDescription = rs.getString("productDescription");
+				product = new Product(productID, productName, productPrice, productCount, productDescription);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -85,13 +85,13 @@ public class ProductDAO {
 			int result = 0;
 			for(Product product: cart) {
 				//SELECT文を準備
-				String sql = "update product set product_count = (select product_count from product where product_id = ?) - ? where product_id = ?";
+				String sql = "update product set productCount = (select productCount from product where productID = ?) - ? where productID = ?";
 				//セレクト文をプリペアに格納
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 				//SQL文を完成
-				pStmt.setInt(1, product.getId());
-				pStmt.setInt(2, product.getCount());
-				pStmt.setInt(3, product.getId());
+				pStmt.setInt(1, product.getProductID());
+				pStmt.setInt(2, product.getProductCount());
+				pStmt.setInt(3, product.getProductID());
 				//SELECT文を実行し、結果表を取得
 				result += pStmt.executeUpdate();
 			}

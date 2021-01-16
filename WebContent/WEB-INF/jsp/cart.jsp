@@ -7,7 +7,8 @@ List<Product> cart = (List<Product>) session.getAttribute("cart");
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css"  crossorigin="anonymous">
+<link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css">
+<link rel="stylesheet" href="/sukkiriShop/css/style.css">
 <meta charset="UTF-8">
 <title>スッキリ商店</title>
 </head>
@@ -28,22 +29,22 @@ List<Product> cart = (List<Product>) session.getAttribute("cart");
 	    </tr>
   </thead>
   <tbody>
-  <% int cart_sumPrice = 0; %>
+  <% int cartSumPrice = 0; %>
 	<% for(int i = 0; i < cart.size(); i++) { %>
 		<% Product product = cart.get(i); %>
 		<tr>
 			<th><%= i+1 %></th>
-			<td><%= product.getName() %></td>
-			<td><%= product.getPrice() %></td>
-			<td><%= product.getCount() %></td>
-			<% int product_sumPrice = product.getPrice() * product.getCount();  %>
-			<td><%= product_sumPrice %></td>
-			<% cart_sumPrice += product_sumPrice; %>
+			<td><%= product.getProductName() %></td>
+			<td><%= product.getProductPrice() %></td>
+			<td><%= product.getProductCount() %></td>
+			<% int productSumPrice = product.getProductPrice() * product.getProductCount();  %>
+			<td><%= productSumPrice %></td>
+			<% cartSumPrice += productSumPrice; %>
 		</tr>
 	<% } %>
 	<tr class="table-primary">
 		<th colspan="4">合計金額</th>
-		<td><%= cart_sumPrice %></td>
+		<td><%= cartSumPrice %></td>
 	</tr>
 	</tbody>
 	</table>

@@ -9,9 +9,9 @@ public class ProductListLogic {
 		List<Product> productList = dao.getAll();
 		return productList;
 	}
-	public Product getOne(int product_id) {
+	public Product getOne(int selectedProductID) {
 		ProductDAO dao = new ProductDAO();
-		Product product = dao.getOne(product_id);
+		Product product = dao.getOne(selectedProductID);
 		return product;
 	}
 }
