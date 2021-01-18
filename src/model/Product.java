@@ -8,6 +8,7 @@ public class Product implements Serializable {
 	private int productPrice;
 	private int productCount;
 	private String productDescription;
+	private String businessID;
 
 	public Product() {}
 	public Product(int productID, String productName, int productPrice, int productCount, String productDescription) {
@@ -16,6 +17,14 @@ public class Product implements Serializable {
 		this.productPrice = productPrice;
 		this.productCount = productCount;
 		this.productDescription = productDescription;
+	}
+	public Product(int productID, String productName, int productPrice, int productCount, String productDescription, String businessID) {
+		this.productID = productID;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.productCount = productCount;
+		this.productDescription = productDescription;
+		this.businessID = businessID;
 	}
 
 	public int getProductID() {
@@ -47,5 +56,11 @@ public class Product implements Serializable {
 	}
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
+	}
+	public String getBusinessID() {
+		return businessID;
+	}
+	public void setBusinessID(String businessID) {
+		this.businessID = businessID;
 	}
 }

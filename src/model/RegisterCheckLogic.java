@@ -13,7 +13,7 @@ public class RegisterCheckLogic {
 	public boolean execute(Business business) {
 		//データベースにアクセスするためのDAOクラスをインスタンス化し、登録済み(true)、未登録(false)を返す
 		BusinessDAO dao = new BusinessDAO();
-		Business checkedUser = dao.checkBybusinessID(business);
-		return checkedUser != null;
+		Business checkedBusiness = dao.checkBybusinessID(business);
+		return checkedBusiness != null;
 	}
 }

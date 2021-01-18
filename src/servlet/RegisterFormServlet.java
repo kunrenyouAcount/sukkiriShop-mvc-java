@@ -67,7 +67,7 @@ public class RegisterFormServlet extends HttpServlet {
 			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerForm.jsp");
 		} else {
 			//未登録の場合、登録可能なので確認画面をフォワード先に設定
-			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/check.jsp");
+			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerCheck.jsp");
 		}
 		//フォワード
 		dispatcher.forward(request, response);

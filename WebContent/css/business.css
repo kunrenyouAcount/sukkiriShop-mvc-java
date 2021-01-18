@@ -8,3 +8,34 @@ form {
   border-color: green;
   box-shadow: 0 0 0 0.2rem rgba(0, 255, 123, 0.25);
 }
+
+
+.btn-primary {
+  color: #fff;
+  background-color: #00ce02;
+  border-color: #00ce02;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #00D904;
+  border-color: #00FF1E;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  color: #fff;
+  background-color: #00D904;
+  border-color: #00ce02;
+  box-shadow: 0 0 0 0.2rem rgba(147,255,38, 0.5);
+}
+
+.list-group-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #00ce02;
+  border-color: #00ce02;
+}
+
+a {
+	color: #00ce02;
+}
