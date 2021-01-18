@@ -60,13 +60,12 @@ public class BusinessRegisterFormServlet extends HttpServlet {
 			boolean result = bo.execute(business);
 
 			RequestDispatcher dispatcher;
-
 			if(result) {
 				//登録済みだった場合フォーム画面をフォワード先に設定
 				dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/businessRegisterForm.jsp");
 			} else {
 				//未登録の場合、登録可能なので確認画面をフォワード先に設定
-				dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/businessCheck.jsp");
+				dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/businessRegisterCheck.jsp");
 			}
 			//フォワード
 			dispatcher.forward(request, response);

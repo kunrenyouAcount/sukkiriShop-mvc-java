@@ -18,5 +18,4 @@ public class BusinessWelcomeServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/businessWelcome.jsp");
 		dispatcher.forward(request, response);
 	}
-
 }

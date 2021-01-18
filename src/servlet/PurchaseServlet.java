@@ -22,17 +22,14 @@ public class PurchaseServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		//スコープからカートを取得
 		List<Product> cart = (List<Product>) session.getAttribute("cart");
-		//スコープのカートを削除する
-		session.removeAttribute("cart");
 		//データベースから商品を減らす
 		PurchaseLogic bo = new PurchaseLogic();
 		boolean result = bo.execute(cart);
-		RequestDispatcher dispatcher;
 		if(result) {
-			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/purchaseOK.jsp");
-		} else {
-			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/purchaseNG.jsp");
+			//スコープのカートを削除する
+			session.removeAttribute("cart");
 		}
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/purchaseResult.jsp");
 		dispatcher.forward(request, response);
 	}
 }

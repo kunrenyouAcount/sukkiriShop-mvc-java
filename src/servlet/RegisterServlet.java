@@ -18,33 +18,17 @@ public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//リクエストパラメータの取得(どちらかが必ずnull)
-		request.setCharacterEncoding("UTF-8");
-		String btn = request.getParameter("btn");
-
 		//セッションスコープからアカウント情報を取得
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 
-		RequestDispatcher dispatcher = null;
-		if(btn.equals("register")) {
-		//登録が押されたパターン
-			//データベースに登録処理を行う
-			RegisterLogic bo = new RegisterLogic();
-			boolean result = bo.execute(user);
-			if(result) {
-				//登録完了画面をフォワード先に設定
-				dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerOK.jsp");
-			} else {
-				//登録失敗画面をフォワード先に設定
-				dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerNG.jsp");
-			}
-		} else if(btn.equals("fix")) {
-		//修正ボタンが押されたパターン
-			//登録フォーム画面をフォワード先に設定
-			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerForm.jsp");
+		//データベースに登録処理を行う
+		RegisterLogic bo = new RegisterLogic();
+		boolean result = bo.execute(user);
+		if(!result) {
+			session.removeAttribute("user");
 		}
-		//フォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registerResult.jsp");
 		dispatcher.forward(request, response);
 	}
 }

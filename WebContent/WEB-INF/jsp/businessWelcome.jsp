@@ -15,7 +15,7 @@ String businessID = (String) session.getAttribute("businessID");
 	#loginButton {
 		display: inline;
 	}
-	#showProductListButton {
+	#showProductAddButton {
 		display: none;
 	}
 <% } else { %>
@@ -25,7 +25,7 @@ String businessID = (String) session.getAttribute("businessID");
 	#loginButton {
 		display: none;
 	}
-	#showProductListButton {
+	#showProductAddButton {
 		display: inline;
 	}
 <% } %>
@@ -34,6 +34,7 @@ String businessID = (String) session.getAttribute("businessID");
 <title>スッキリ商店</title>
 <link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css">
 <link rel="stylesheet" href="/sukkiriShop/css/style.css">
+<link rel="stylesheet" href="/sukkiriShop/css/business.css">
 </head>
 <body>
 <div class="container">
@@ -41,9 +42,9 @@ String businessID = (String) session.getAttribute("businessID");
 <a href="/sukkiriShop/WelcomeServlet" id="WelcomeViewButton" class="fixed-top" style="left:initial;"><button class="btn btn-secondary">一般用はこちら</button></a>
 <ul class="list-group text-center">
 <li class="list-group-item p-5"><img src="/sukkiriShop/img/shoppingCartGreen_256.png"/></li>
-<a href="/sukkiriShop/BusinessRegisterFormServlet" style="color: white" id="registerButton"><li class="list-group-item active" style="background-color: green;">ユーザー登録</li></a>
-<a href="/sukkiriShop/BusinessLoginServlet" id="loginButton"><li class="list-group-item" style="color: green">ログイン</li></a>
-<a href="/sukkiriShop/ProductListServlet" style="color: white" id="showProductListButton"><li class="list-group-item active" style="color: green">商品を見る</li></a>
+<a href="/sukkiriShop/BusinessRegisterFormServlet" style="color: white" id="registerButton"><li class="list-group-item active">ユーザー登録</li></a>
+<a href="/sukkiriShop/BusinessLoginServlet" id="loginButton"><li class="list-group-item">ログイン</li></a>
+<a href="/sukkiriShop/ProductAddServlet" style="color: white" id="showProductAddButton"><li class="list-group-item active">商品を追加する</li></a>
 </ul>
 </div>
 </body>
