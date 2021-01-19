@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 		//ログインクラスに上記で取得したデータを格納し、ロジッククラスを実行
 		Login login = new Login(userID, userPass);
 		LoginLogic bo = new LoginLogic();
-		boolean result = bo.execute(login);
+		boolean result = bo.checkByLogiin(login);
 
 		//その結果によって処理を分岐
 		if(result) {

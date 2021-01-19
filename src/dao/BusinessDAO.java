@@ -19,7 +19,7 @@ public class BusinessDAO {
 	final String DB_PASS = "";
 
 	//businessIDが登録済みかどうか確認
-	public Business checkBybusinessID(Business business) {
+	public Business selectBybusinessID(Business business) {
 		Business checkedBusiness = null;
 
 		//データベースへ接続
@@ -49,7 +49,7 @@ public class BusinessDAO {
 		return checkedBusiness;
 	}
 
-	public boolean registerBusiness(Business business) {
+	public boolean insertBusiness(Business business) {
 		//データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SELECT文を準備
@@ -78,7 +78,7 @@ public class BusinessDAO {
 	}
 
 	//ログイン情報をもとにアカウントを検索(ログイン認証)
-	public Business findByBusinessLogin(BusinessLogin businessLogin) {
+	public Business selectByBusinessLogin(BusinessLogin businessLogin) {
 		Business business = null;
 
 		//データベースへ接続

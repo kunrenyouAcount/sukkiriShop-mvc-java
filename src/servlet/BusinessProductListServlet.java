@@ -12,24 +12,24 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Product;
-import model.PurchaseLogic;
+import model.ProductGetLogic;
 
-@WebServlet("/PurchaseServlet")
-public class PurchaseServlet extends HttpServlet {
+@WebServlet("/BusinessProductListServlet")
+public class BusinessProductListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		//スコープからカートを取得
-		List<Product> cart = (List<Product>) session.getAttribute("cart");
-		//データベースから商品を減らす
-		PurchaseLogic bo = new PurchaseLogic();
-		boolean result = bo.subtractionProduct(cart);
-		if(result) {
-			//スコープのカートを削除する
-			session.removeAttribute("cart");
+		String businessID = (String)session.getAttribute("businessID");
+		RequestDispatcher dispatcher;
+		if(businessID == null) {
+			dispatcher = request.getRequestDispatcher("WEB-INF/jsp/businessWelcome.jsp");
+		} else {
+			ProductGetLogic bo = new ProductGetLogic();
+			List<Product> businessProductList = bo.getAllByBusinessID(businessID);
+			request.setAttribute("businessProductList", businessProductList);
+			dispatcher = request.getRequestDispatcher("WEB-INF/jsp/businessProductList.jsp");
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/purchaseResult.jsp");
 		dispatcher.forward(request, response);
 	}
 }

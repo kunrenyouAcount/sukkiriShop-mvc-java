@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,24 +11,26 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Product;
-import model.PurchaseLogic;
+import model.ProductChangeLogic;
 
-@WebServlet("/PurchaseServlet")
-public class PurchaseServlet extends HttpServlet {
+@WebServlet("/ProductChangeServlet")
+public class ProductChangeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//セッションから商品情報を取得
 		HttpSession session = request.getSession();
-		//スコープからカートを取得
-		List<Product> cart = (List<Product>) session.getAttribute("cart");
-		//データベースから商品を減らす
-		PurchaseLogic bo = new PurchaseLogic();
-		boolean result = bo.subtractionProduct(cart);
+		Product product = (Product) session.getAttribute("product");
+
+		//商品変更を実行
+		ProductChangeLogic bo = new ProductChangeLogic();
+		boolean result = bo.changeProduct(product);
 		if(result) {
-			//スコープのカートを削除する
-			session.removeAttribute("cart");
+			//登録成功のため、セッションから商品情報を削除
+			session.removeAttribute("product");
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/purchaseResult.jsp");
+		//登録結果画面にフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/productChangeResult.jsp");
 		dispatcher.forward(request, response);
 	}
 }

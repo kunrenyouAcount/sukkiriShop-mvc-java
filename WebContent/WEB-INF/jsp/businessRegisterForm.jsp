@@ -16,7 +16,7 @@
 	<div class="form-group">
 		<label><dl>
 			<dt>ビジネスID：</dt>
-			<dd><input type="text" class="form-control" placeholder="必須項目です" name="businessID" pattern="^([a-zA-Z0-9]{8,})$"></dd>
+			<dd><input type="text" class="form-control" placeholder="必須項目です" name="businessID" pattern="^([a-zA-Z0-9]{8,})$" required></dd>
 			<dd>
 			<small class="form-text text-muted">
 				・文字数<br />
@@ -34,7 +34,7 @@
 	<div class="form-group">
 		<label><dl>
 			<dt>パスワード：</dt>
-			<dd><input type="password" class="form-control" placeholder="必須項目です" name="businessPass" pattern="^([a-zA-Z0-9]{8,})$"></dd>
+			<dd><input type="password" class="form-control" placeholder="必須項目です" name="businessPass" pattern="^([a-zA-Z0-9]{8,})$" required></dd>
 			<dd>
 			<small class="form-text text-muted">
 				・文字数<br />
@@ -53,14 +53,14 @@
 	<div class="form-group">
 	    <label><dl>
 	    	<dt>メールアドレス</dt>
-		    <dd><input type="email" class="form-control" placeholder="必須項目です" name="businessMail" pattern="^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$"></dd>
+		    <dd><input type="email" class="form-control" placeholder="必須項目です" name="businessMail" pattern="^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$" required></dd>
 		    <dd><small class="form-text text-muted"><b>※半角で入力してください</b></small></dd>
 		</dl></label>
 	</div>
 	<div class="form-group">
 		<label><dl>
 			<dt>会社名：</dt>
-			<dd><input type="text" class="form-control" placeholder="必須項目です" name="businessName"></dd>
+			<dd><input type="text" class="form-control" placeholder="必須項目です" name="businessName" required></dd>
 			<dd><small class="form-text text-muted">例）（株）とぴあ</small></dd>
 		</dl></label>
 	</div>

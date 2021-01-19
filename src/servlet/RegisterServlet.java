@@ -24,7 +24,7 @@ public class RegisterServlet extends HttpServlet {
 
 		//データベースに登録処理を行う
 		RegisterLogic bo = new RegisterLogic();
-		boolean result = bo.execute(user);
+		boolean result = bo.registerUser(user);
 		if(!result) {
 			session.removeAttribute("user");
 		}

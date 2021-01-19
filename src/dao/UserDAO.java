@@ -20,7 +20,7 @@ public class UserDAO {
 	final String DB_PASS = "";
 
 	//ログイン情報でアカウントが見つかるか検索
-	public User findByLogin(Login login) {
+	public User selectByLogin(Login login) {
 		User user = null;
 
 		//データベースへ接続
@@ -53,7 +53,7 @@ public class UserDAO {
 	}
 
 	//userIdが使用済みかどうか検索
-	public User checkByUserID(User user) {
+	public User selectByUserID(User user) {
 		User checkedUser = null;
 
 		//データベースへ接続
@@ -85,7 +85,7 @@ public class UserDAO {
 	}
 
 	//アカウントを新規登録
-	public boolean registerUser(User user) {
+	public boolean insertUser(User user) {
 			//データベースへ接続
 			try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 				//SELECT文を準備

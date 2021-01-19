@@ -39,3 +39,6 @@ form {
 a {
 	color: #00ce02;
 }
+a:hover {
+  color: #00a401;
+}

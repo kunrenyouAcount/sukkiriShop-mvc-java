@@ -32,7 +32,7 @@ public class BusinessLoginServlet extends HttpServlet {
 		//ログインクラスに上記で取得したデータを格納し、ロジッククラスを実行
 		BusinessLogin businessLogin = new BusinessLogin(businessID, businessPass);
 		LoginLogic bo = new LoginLogic();
-		boolean result = bo.execute(businessLogin);
+		boolean result = bo.checkByBusinessLogin(businessLogin);
 
 		//その結果によって処理を分岐
 		if(result) {

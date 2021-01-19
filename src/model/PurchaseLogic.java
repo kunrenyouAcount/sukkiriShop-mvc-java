@@ -5,9 +5,9 @@ import java.util.List;
 import dao.ProductDAO;
 
 public class PurchaseLogic {
-	public boolean execute(List<Product> cart) {
+	public boolean subtractionProduct(List<Product> cart) {
 		ProductDAO dao = new ProductDAO();
-		boolean result = dao.subtractionProduct(cart);
+		boolean result = dao.updateMulti(cart);
 		return result;
 	}
 }

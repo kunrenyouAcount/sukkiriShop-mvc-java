@@ -57,7 +57,7 @@ public class BusinessRegisterFormServlet extends HttpServlet {
 
 			//登録済みかどうかをロジッククラスを実行し確認
 			RegisterCheckLogic bo = new RegisterCheckLogic();
-			boolean result = bo.execute(business);
+			boolean result = bo.checkByBusiness(business);
 
 			RequestDispatcher dispatcher;
 			if(result) {

@@ -24,7 +24,7 @@ public class BusinessRegisterServlet extends HttpServlet {
 
 		//データベースに登録処理を行う
 		RegisterLogic bo = new RegisterLogic();
-		boolean result = bo.execute(business);
+		boolean result = bo.registerBusiness(business);
 		if(!result) {
 			session.removeAttribute("business");
 		}

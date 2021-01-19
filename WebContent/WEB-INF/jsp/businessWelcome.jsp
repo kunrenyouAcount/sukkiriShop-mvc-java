@@ -44,7 +44,7 @@ String businessID = (String) session.getAttribute("businessID");
 <li class="list-group-item p-5"><img src="/sukkiriShop/img/shoppingCartGreen_256.png"/></li>
 <a href="/sukkiriShop/BusinessRegisterFormServlet" style="color: white" id="registerButton"><li class="list-group-item active">ユーザー登録</li></a>
 <a href="/sukkiriShop/BusinessLoginServlet" id="loginButton"><li class="list-group-item">ログイン</li></a>
-<a href="/sukkiriShop/ProductAddServlet" style="color: white" id="showProductAddButton"><li class="list-group-item active">商品を追加する</li></a>
+<a href="/sukkiriShop/BusinessProductListServlet" style="color: white" id="showProductAddButton"><li class="list-group-item active">商品を追加する</li></a>
 </ul>
 </div>
 </body>

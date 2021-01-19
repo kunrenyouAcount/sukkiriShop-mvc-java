@@ -58,7 +58,7 @@ public class RegisterFormServlet extends HttpServlet {
 
 		//登録済かどうかをロジッククラスを実行し確認
 		RegisterCheckLogic bo = new RegisterCheckLogic();
-		boolean result = bo.execute(user);
+		boolean result = bo.checkByUser(user);
 
 		RequestDispatcher dispatcher;
 

@@ -1,0 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="model.Product" %>
+<%
+Product product = (Product) session.getAttribute("product");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css">
+<link rel="stylesheet" href="/sukkiriShop/css/style.css">
+<link rel="stylesheet" href="/sukkiriShop/css/business.css">
+<meta charset="UTF-8">
+<title>スッキリ商店</title>
+</head>
+<body>
+<div class="container" >
+<h1>商品登録確認</h1>
+<form action="/sukkiriShop/ProductChangeServlet" method="get">
+	<div class="form-group">
+		<dl>
+			<dt>ビジネスID：</dt>
+			<dd><%= product.getBusinessID() %></dd>
+		</dl>
+	</div>
+	<div class="form-group">
+		<dl>
+			<dt>商品名：</dt>
+			<dd><%= product.getProductName() %></dd>
+		</dl>
+	</div>
+	<div class="form-group">
+	    <dl>
+	    	<dt>単価：</dt>
+	    	<dd><%= product.getProductPrice() %></dd>
+		</dl>
+	</div>
+	<div class="form-group">
+		<dl>
+			<dt>商品数：</dt>
+			<dd><%= product.getProductCount() %></dd>
+		</dl>
+	</div>
+	<div class="form-group">
+		<dl>
+			<dt>商品説明：</dt>
+			<dd><%= product.getProductDescription() %></dd>
+		</dl>
+	</div>
+
+	<button type="submit" class="btn btn-primary">変更</button>
+	<button class="btn btn-secondary"><a href="javascript:history.back();" style="color: white;">修正</a></button>
+</form>
+</div>
+</body>
+</html>

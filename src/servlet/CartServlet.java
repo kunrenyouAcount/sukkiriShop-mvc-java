@@ -21,14 +21,14 @@ public class CartServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//リクエストパラメータを取得
-		String selectedProductIDString = request.getParameter("selectedProductID");
+		String productIDString = request.getParameter("productID");
 		String selectedCountString = request.getParameter("selectedCount");
-		int selectedProductID=0;
+		int productID=0;
 		int selectedCount=0;
 
 		//IDと数値が正しくない場合には一覧画面に戻す
-		if (selectedProductIDString != null) {
-			selectedProductID = Integer.parseInt(selectedProductIDString);
+		if (productIDString != null) {
+			productID = Integer.parseInt(productIDString);
 		} else {
 			response.sendRedirect("/sukkiriShop/ProductListServlet");
 		}
@@ -44,7 +44,7 @@ public class CartServlet extends HttpServlet {
 
 		//その番号に該当する商品をデータベースで検索し、取得
 		ProductGetLogic bo = new ProductGetLogic();
-		Product product = bo.getOne(selectedProductID);
+		Product product = bo.getOne(productID);
 		product.setProductCount(selectedCount);
 
 		//カート内の商品の有無によって新規作成か取得かを処理

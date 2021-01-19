@@ -4,16 +4,16 @@ import dao.BusinessDAO;
 import dao.UserDAO;
 
 public class RegisterLogic {
-	public boolean execute(User user) {
+	public boolean registerUser(User user) {
 		//データベースにアクセスするためのDAOクラスをインスタンス化し、処理結果をboolean型で返す
 		UserDAO dao = new UserDAO();
-		boolean result = dao.registerUser(user);
+		boolean result = dao.insertUser(user);
 		return result;
 	}
-	public boolean execute(Business business) {
+	public boolean registerBusiness(Business business) {
 		//データベースにアクセスするためのDAOクラスをインスタンス化し、処理結果をboolean型で返す
 		BusinessDAO dao = new BusinessDAO();
-		boolean result = dao.registerBusiness(business);
+		boolean result = dao.insertBusiness(business);
 		return result;
 	}
 }

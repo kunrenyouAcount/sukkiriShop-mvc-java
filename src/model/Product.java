@@ -21,6 +21,14 @@ public class Product implements Serializable {
 	}
 	//業者用
 	public Product(int productID, String productName, int productPrice, int productCount, String productDescription, String businessID) {
+		this.productID = productID;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.productCount = productCount;
+		this.productDescription = productDescription;
+		this.businessID = businessID;
+	}
+	public Product(String productName, int productPrice, int productCount, String productDescription, String businessID) {
 		this.productName = productName;
 		this.productPrice = productPrice;
 		this.productCount = productCount;
