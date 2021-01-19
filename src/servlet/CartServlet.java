@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.Product;
-import model.ProductListLogic;
+import model.ProductGetLogic;
 
 @WebServlet("/CartServlet")
 public class CartServlet extends HttpServlet {
@@ -43,7 +43,7 @@ public class CartServlet extends HttpServlet {
 		}
 
 		//その番号に該当する商品をデータベースで検索し、取得
-		ProductListLogic bo = new ProductListLogic();
+		ProductGetLogic bo = new ProductGetLogic();
 		Product product = bo.getOne(selectedProductID);
 		product.setProductCount(selectedCount);
 

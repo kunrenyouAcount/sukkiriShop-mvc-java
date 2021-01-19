@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Product;
-import model.ProductListLogic;
+import model.ProductGetLogic;
 
 @WebServlet("/ProductListServlet")
 public class ProductListServlet extends HttpServlet {
@@ -19,7 +19,7 @@ public class ProductListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//商品一覧を取得する
-		ProductListLogic bo = new ProductListLogic();
+		ProductGetLogic bo = new ProductGetLogic();
 		List<Product> productList = bo.getAll();
 		//取得したリストをリクエストスコープに保存する
 		request.setAttribute("productList", productList);

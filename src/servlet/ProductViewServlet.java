@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Product;
-import model.ProductListLogic;
+import model.ProductGetLogic;
 
 @WebServlet("/ProductViewServlet")
 public class ProductViewServlet extends HttpServlet {
@@ -21,7 +21,7 @@ public class ProductViewServlet extends HttpServlet {
 		int selectedProductID = Integer.parseInt(request.getParameter("selectedProductID"));
 
 		//idで検索をかけて商品情報を取得
-		ProductListLogic bo = new ProductListLogic();
+		ProductGetLogic bo = new ProductGetLogic();
 		Product selectedProduct = bo.getOne(selectedProductID);
 
 		//取得した商品情報をリクエストスコープに格納
