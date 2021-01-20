@@ -18,6 +18,12 @@ String userID = (String) session.getAttribute("userID");
 	#showProductListButton {
 		display: none;
 	}
+	#BusinessViewButton{
+		display:inline;
+	}
+	#logoutButton {
+		display:none;
+	}
 <% } else { %>
 	#registerButton {
 		display: none;
@@ -27,6 +33,12 @@ String userID = (String) session.getAttribute("userID");
 	}
 	#showProductListButton {
 		display: inline;
+	}
+	#BusinessViewButton{
+		display:none;
+	}
+	#logoutButton {
+		display:inline;
 	}
 <% } %>
 </style>
@@ -39,6 +51,7 @@ String userID = (String) session.getAttribute("userID");
 <div class="container">
 <h1 class="text-center">スッキリ商店</h1>
 <a href="/sukkiriShop/BusinessWelcomeServlet" id="BusinessViewButton" class="fixed-top" style="left:initial;"><button class="btn btn-secondary">ビジネス用はこちら</button></a>
+<a href="/sukkiriShop/LogoutServlet" id="logoutButton" class="fixed-top" style="left:initial;"><button class="btn btn-secondary">ログアウト</button></a>
 <ul class="list-group text-center">
 <li class="list-group-item p-5"><img src="/sukkiriShop/img/shoppingCart_256.png"/></li>
 <a href="/sukkiriShop/RegisterFormServlet" style="color: white" id="registerButton"><li class="list-group-item active">ユーザー登録</li></a>
