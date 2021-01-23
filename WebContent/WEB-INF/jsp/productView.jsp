@@ -27,7 +27,7 @@ Product product = (Product) request.getAttribute("selectedProduct");
 <input type="submit" value="カートに入れる" class="btn btn-primary ml-3"/>
 </select>
 </form>
-<a href="/sukkiriShop/ProductListServlet"><button class="btn btn-secondary">商品一覧に戻る</button></a>
+	<a href="javascript:history.back();" style="color: white;"><input type="button" class="btn btn-secondary" value="商品一覧に戻る"></a>
 </div>
 <script>
 document.getElementById('sumPrice').textContent =<%= product.getProductPrice() %> * 1;

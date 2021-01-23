@@ -48,7 +48,7 @@ User user = (User) session.getAttribute("user");
 		</dl>
 	</div>
 	<button type="submit" class="btn btn-primary">登録</button>
-	<button class="btn btn-secondary"><a href="javascript:history.back();" style="color: white;">修正</a></button>
+	<a href="javascript:history.back();" style="color: white;"><input type="button" class="btn btn-secondary" value="修正"></a>
 </form>
 </div>
 </body>

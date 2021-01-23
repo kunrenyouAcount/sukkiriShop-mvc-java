@@ -71,6 +71,7 @@
 		</dl></label>
 	</div>
 	<button type="submit" class="btn btn-primary">確認</button>
+	<a href="javascript:history.back();" style="color: white;"><input type="button" class="btn btn-secondary" value="戻る"></a>
 </form>
 <a href="/sukkiriShop/WelcomeServlet"><button class="btn btn-secondary" style="color: white">トップへ</button></a>
 </div>

@@ -34,6 +34,8 @@ List<Product> productList = (List<Product>) request.getAttribute("productList");
 <% } %>
 	</tbody>
 </table>
+<a href="/sukkiriShop/CartServlet"><button class="btn btn-primary">カートへ</button></a>
+<a href="/sukkiriShop/WelcomeServlet"><button class="btn btn-secondary">トップへ</button></a>
 </div>
 </body>
 </html>

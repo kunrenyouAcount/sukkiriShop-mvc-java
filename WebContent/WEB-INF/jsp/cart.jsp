@@ -18,6 +18,7 @@ List<Product> cart = (List<Product>) session.getAttribute("cart");
 <h1>商品カート</h1>
 <% if(cart == null) { %>
 	<p>カートが空です</p>
+	<a href="/sukkiriShop/ProductListServlet"><button class="btn btn-primary">商品を見る</button></a>
 <% } else { %>
 	<table class="table"	>
 	<thead>
@@ -49,11 +50,9 @@ List<Product> cart = (List<Product>) session.getAttribute("cart");
 	</tr>
 	</tbody>
 	</table>
-<% } %>
-<div>
-	<a href="/sukkiriShop/ProductListServlet"><button class="btn btn-secondary">続けて商品を見る</button></a>
 	<a href="/sukkiriShop/PurchaseServlet"><button class="btn btn-primary">購入する</button></a>
-</div>
+	<a href="/sukkiriShop/ProductListServlet"><button class="btn btn-secondary">続けて商品を見る</button></a>
+<% } %>
 </div>
 </body>
 </html>

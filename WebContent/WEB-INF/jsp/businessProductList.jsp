@@ -40,6 +40,7 @@ List<Product> businessProductList = (List<Product>) request.getAttribute("busine
 	</table>
 <% } %>
 <a href="/sukkiriShop/ProductRegisterFormServlet"><button class="btn btn-primary">新規追加</button></a>
+<a href="/sukkiriShop/BusinessWelcomeServlet"><button class="btn btn-secondary">トップへ</button></a>
 </div>
 </body>
 </html>
