@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-Object userID = session.getAttribute("userID");
+String userID = (String)session.getAttribute("userID");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css">
 <link rel="stylesheet" href="/sukkiriShop/css/style.css">
+<link rel="stylesheet" href="/sukkiriShop/css/general.css">
 <meta charset="UTF-8">
 <title>スッキリ商店</title>
 </head>

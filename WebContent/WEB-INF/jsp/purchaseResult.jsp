@@ -2,13 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ page import="model.Product,  java.util.List" %>
 <%
-Object cart = session.getAttribute("cart");
+List<Product> cart = (List<Product>)session.getAttribute("cart");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css">
 <link rel="stylesheet" href="/sukkiriShop/css/style.css">
+<link rel="stylesheet" href="/sukkiriShop/css/general.css">
 <meta charset="UTF-8">
 <title>スッキリ商店</title>
 </head>

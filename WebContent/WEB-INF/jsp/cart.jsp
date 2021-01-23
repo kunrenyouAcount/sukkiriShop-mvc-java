@@ -9,6 +9,7 @@ List<Product> cart = (List<Product>) session.getAttribute("cart");
 <head>
 <link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css">
 <link rel="stylesheet" href="/sukkiriShop/css/style.css">
+<link rel="stylesheet" href="/sukkiriShop/css/general.css">
 <meta charset="UTF-8">
 <title>スッキリ商店</title>
 </head>

@@ -29,6 +29,18 @@ form {
   box-shadow: 0 0 0 0.2rem rgba(147,255,38, 0.5);
 }
 
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #00ce02;
+  border-color: #00a401;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(147,255,38, 0.5);
+}
+
 .list-group-item.active {
   z-index: 2;
   color: #fff;

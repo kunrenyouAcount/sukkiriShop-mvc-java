@@ -9,6 +9,7 @@ Product product = (Product) request.getAttribute("selectedProduct");
 <head>
 <link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css">
 <link rel="stylesheet" href="/sukkiriShop/css/style.css">
+<link rel="stylesheet" href="/sukkiriShop/css/general.css">
 <meta charset="UTF-8">
 <title>スッキリ商店</title>
 </head>

@@ -46,6 +46,7 @@ String userID = (String) session.getAttribute("userID");
 <title>スッキリ商店</title>
 <link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css">
 <link rel="stylesheet" href="/sukkiriShop/css/style.css">
+<link rel="stylesheet" href="/sukkiriShop/css/general.css">
 </head>
 <body>
 <div class="container">

@@ -9,6 +9,7 @@ Business business = (Business) session.getAttribute("business");
 <head>
 <link rel="stylesheet" href="/sukkiriShop/css/bootstrap.css">
 <link rel="stylesheet" href="/sukkiriShop/css/style.css">
+<link rel="stylesheet" href="/sukkiriShop/css/business.css">
 <meta charset="UTF-8">
 <title>スッキリ商店</title>
 </head>
