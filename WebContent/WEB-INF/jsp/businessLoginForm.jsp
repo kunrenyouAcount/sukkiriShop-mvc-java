@@ -16,14 +16,14 @@
 	<div class="form-group">
 		<label><dl>
 			<dt>ビジネスID：</dt>
-			<dd><input type="text" class="form-control" placeholder="必須項目です" name="businessID" pattern="^([a-zA-Z0-9]{6,30})$" required></dd>
+			<dd><input type="text" class="form-control" placeholder="必須項目です" name="businessID" pattern="^[a-zA-Z\d]{6,30}$" required></dd>
 			<dd><small class="form-text text-muted">※半角で6文字以上30字以下で入力してください</small></dd>
 		</dl></label>
 	</div>
 	<div class="form-group">
 		<label><dl>
 			<dt>パスワード：</dt>
-			<dd><input type="password" class="form-control" placeholder="必須項目です" name="businessPass" pattern="^([a-zA-Z0-9]{8,30})$" required></dd>
+			<dd><input type="password" class="form-control" placeholder="必須項目です" name="businessPass" pattern="^[a-zA-Z\d]{8,30}$" required></dd>
 			<dd><small class="form-text text-muted">※半角で8文字以上30字以下で入力してください</small></dd>
 		</dl></label>
 	</div>

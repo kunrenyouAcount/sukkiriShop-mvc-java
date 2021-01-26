@@ -24,6 +24,7 @@ List<Product> cart = (List<Product>) session.getAttribute("cart");
 	<thead>
 	    <tr>
 	      <th scope="col">#</th>
+	      <th scope="col">商品画像</th>
 	      <th scope="col">商品名</th>
 	      <th scope="col">単価</th>
 	      <th scope="col">数量</th>
@@ -36,6 +37,7 @@ List<Product> cart = (List<Product>) session.getAttribute("cart");
 		<% Product product = cart.get(i); %>
 		<tr>
 			<th><%= i+1 %></th>
+			<td><img class="img100" src="/sukkiriShop/uploadImage/<%= product.getProductImage() %>"/></td>
 			<td><%= product.getProductName() %></td>
 			<td><%= product.getProductPrice() %></td>
 			<td><%= product.getProductCount() %></td>
@@ -45,7 +47,7 @@ List<Product> cart = (List<Product>) session.getAttribute("cart");
 		</tr>
 	<% } %>
 	<tr class="table-primary">
-		<th colspan="4">合計金額</th>
+		<th colspan="5">合計金額</th>
 		<td><%= cartSumPrice %></td>
 	</tr>
 	</tbody>

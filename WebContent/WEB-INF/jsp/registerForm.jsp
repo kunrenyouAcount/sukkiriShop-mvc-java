@@ -16,7 +16,7 @@
 	<div class="form-group">
 		<label><dl>
 			<dt>ユーザーID：</dt>
-			<dd><input type="text" class="form-control" placeholder="必須項目です" name="userID" pattern="^([a-zA-Z0-9]{6,30})$" required></dd>
+			<dd><input type="text" class="form-control" placeholder="必須項目です" name="userID" pattern="^[a-zA-Z\d]{6,30}$" required></dd>
 			<dd><small class="form-text text-muted">
 				・文字数<br />
 				　<b>6字以上30文字以下</b><br />
@@ -33,7 +33,7 @@
 	<div class="form-group">
 		<label><dl>
 			<dt>パスワード：</dt>
-			<dd><input type="password" class="form-control" placeholder="必須項目です" name="userPass" pattern="/^(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,30}$/i" required></dd>
+			<dd><input type="password" class="form-control" placeholder="必須項目です" name="userPass" pattern="^(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d]{8,30}$" required></dd>
 			<dd>
 			<small class="form-text text-muted">
 				・文字数<br />

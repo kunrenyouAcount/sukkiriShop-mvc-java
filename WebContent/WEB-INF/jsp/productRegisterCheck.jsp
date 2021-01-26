@@ -47,7 +47,12 @@ Product product = (Product) session.getAttribute("product");
 			<dd><%= product.getProductDescription() %></dd>
 		</dl>
 	</div>
-
+	<div class="form-group">
+		<dl>
+			<dt>商品画像：</dt>
+			<dd><img class="img400" src="/sukkiriShop/uploadImage/<%= product.getProductImage() %>"/></dd>
+		</dl>
+	</div>
 	<button type="submit" class="btn btn-primary">登録</button>
 	<a href="javascript:history.back();" style="color: white;"><input type="button" class="btn btn-secondary" value="修正"></a>
 </form>

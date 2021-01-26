@@ -19,6 +19,7 @@ List<Product> productList = (List<Product>) request.getAttribute("productList");
 <table class="table">
 	<thead>
 	    <tr>
+		  <th scope="col">商品画像</th>
 	      <th scope="col">商品名</th>
 	      <th scope="col">単価</th>
 	      <th scope="col">商品数</th>
@@ -27,6 +28,7 @@ List<Product> productList = (List<Product>) request.getAttribute("productList");
   <tbody>
 <% for(Product product: productList) { %>
 			<tr>
+					<td><a href="/sukkiriShop/ProductViewServlet?selectedProductID=<%= product.getProductID()%>"><img class="img100" src="/sukkiriShop/uploadImage/<%= product.getProductImage() %>"/></a></td>
 					<td><a href="/sukkiriShop/ProductViewServlet?selectedProductID=<%= product.getProductID()%>"><%= product.getProductName() %></a></td>
 					<td><%= product.getProductPrice() %></td>
 					<td><%= product.getProductCount() %></td>

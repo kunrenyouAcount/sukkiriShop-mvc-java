@@ -25,7 +25,7 @@ public class ProductDAO {
 		//データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SELECT文を準備
-			String sql = "select productID, productName,  productPrice, productCount, productDescription from product";
+			String sql = "select productID, productName,  productPrice, productCount, productDescription, productImage from product";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//SELECT文を実行し、結果表を取得
@@ -39,7 +39,8 @@ public class ProductDAO {
 				int productPrice = rs.getInt("productPrice");
 				int productCount = rs.getInt("productCount");
 				String productDescription = rs.getString("productDescription");
-				Product product = new Product(productID, productName, productPrice, productCount, productDescription);
+				String productImage = rs.getString("productImage");
+				Product product = new Product(productID, productName, productPrice, productCount, productDescription, productImage);
 				productList.add(product);
 			}
 		} catch (SQLException e) {
@@ -55,7 +56,7 @@ public class ProductDAO {
 		//データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SELECT文を準備
-			String sql = "select productID, productName,  productPrice, productCount, productDescription from product where productID = ?";
+			String sql = "select productID, productName,  productPrice, productCount, productDescription, productImage from product where productID = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setInt(1, selectedProductID);
 
@@ -70,7 +71,8 @@ public class ProductDAO {
 				int productPrice = rs.getInt("productPrice");
 				int productCount = rs.getInt("productCount");
 				String productDescription = rs.getString("productDescription");
-				product = new Product(productID, productName, productPrice, productCount, productDescription);
+				String productImage = rs.getString("productImage");
+				product = new Product(productID, productName, productPrice, productCount, productDescription, productImage);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -113,7 +115,7 @@ public class ProductDAO {
 		//データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SELECT文を準備
-			String sql = "select productID, productName,  productPrice, productCount, productDescription, businessID from product WHERE businessID = ?";
+			String sql = "select productID, productName,  productPrice, productCount, productDescription, productImage, businessID from product WHERE businessID = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//SQL文を完成
 			pStmt.setString(1, businessID);
@@ -129,8 +131,9 @@ public class ProductDAO {
 				int productPrice = rs.getInt("productPrice");
 				int productCount = rs.getInt("productCount");
 				String productDescription = rs.getString("productDescription");
+				String productImage = rs.getString("productImage");
 				String getBusinessID = rs.getString("businessID");
-				Product product = new Product(productID, productName, productPrice, productCount, productDescription, getBusinessID);
+				Product product = new Product(productID, productName, productPrice, productCount, productDescription,productImage, getBusinessID);
 				productList.add(product);
 			}
 		} catch (SQLException e) {
@@ -145,7 +148,7 @@ public class ProductDAO {
 		//データベースへ接続
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 			//SELECT文を準備
-			String sql = "INSERT INTO product (productName,  productPrice, productCount, productDescription, businessID) VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO product (productName,  productPrice, productCount, productDescription, productImage, businessID) VALUES (?, ?, ?, ?, ?, ?)";
 			//セレクト文をプリペアに格納
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//VALUESの中身を引数の値から設定
@@ -153,7 +156,8 @@ public class ProductDAO {
 			pStmt.setInt(2, product.getProductPrice());
 			pStmt.setInt(3, product.getProductCount());
 			pStmt.setString(4, product.getProductDescription());
-			pStmt.setString(5, product.getBusinessID());
+			pStmt.setString(5, product.getProductImage());
+			pStmt.setString(6, product.getBusinessID());
 
 			//SELECT文を実行し、結果表を取得
 			int result = pStmt.executeUpdate();
@@ -174,7 +178,7 @@ public class ProductDAO {
 		//データベースへ接続
 				try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
 					//SELECT文を準備
-					String sql = "UPDATE product SET productName = ?,  productPrice =?, productCount = ?, productDescription = ? WHERE productID = ? ";
+					String sql = "UPDATE product SET productName = ?,  productPrice =?, productCount = ?, productDescription = ?, productImage = ? WHERE productID = ? ";
 					//セレクト文をプリペアに格納s
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 					//VALUESの中身を引数の値から設定
@@ -183,7 +187,7 @@ public class ProductDAO {
 					pStmt.setInt(3, product.getProductCount());
 					pStmt.setString(4, product.getProductDescription());
 					pStmt.setInt(5, product.getProductID());
-
+					pStmt.setString(6, product.getProductImage());
 					//SELECT文を実行し、結果表を取得
 					int result = pStmt.executeUpdate();
 					if(result != 1) {

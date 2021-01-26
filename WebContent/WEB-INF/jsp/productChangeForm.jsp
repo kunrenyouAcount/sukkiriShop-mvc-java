@@ -65,6 +65,17 @@ Product product = (Product) session.getAttribute("product");
 			</small></dd>
 		</dl></label>
 	</div>
+	<div class="form-group">
+		<label><dl>
+			<dt>画像：</dt>
+			<dd><input type="file" name="productImage"></dd>
+			<dd><small class="form-text text-muted">
+				・形式(以下の形式のもの以外は保存できません)<br />
+				　<b>.jpg/.jpeg/.png/.gif</b><br />
+			</small></dd>
+			<dd><img class="img400" src="/sukkiriShop/uploadImage/<%= product.getProductImage() %>"/></dd>
+		</dl></label>
+	</div>
 	<button type="submit" class="btn btn-primary">確認</button>
 	<a href="javascript:history.back();" style="color: white;"><input type="button" class="btn btn-secondary" value="戻る"></a>
 </form>

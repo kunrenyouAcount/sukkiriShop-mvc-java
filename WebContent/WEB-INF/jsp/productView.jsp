@@ -18,6 +18,7 @@ Product product = (Product) request.getAttribute("selectedProduct");
 <h1><%= product.getProductName() %></h1>
 <dl><dt>商品説明：</dt><dd><%= product.getProductDescription() %></dd></dl>
 <form name="form1" action="/sukkiriShop/CartServlet?productID=<%= product.getProductID() %>" method="post">
+<img class="img400" src="/sukkiriShop/uploadImage/<%= product.getProductImage() %>"/>
 <p class="mb-2">単価：<%= product.getProductPrice() %>円</p>
 <h4 class="mb-2">小計：<span id="sumPrice"></span>円</h4>
 <select name="selectedCount" onChange="countChange()">

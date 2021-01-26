@@ -23,6 +23,7 @@ List<Product> businessProductList = (List<Product>) request.getAttribute("busine
 	<table class="table">
 		<thead>
 		    <tr>
+	  	      <th scope="col">商品画像</th>
 		      <th scope="col">商品名</th>
 		      <th scope="col">単価</th>
 		      <th scope="col">商品数</th>
@@ -31,6 +32,7 @@ List<Product> businessProductList = (List<Product>) request.getAttribute("busine
 	  <tbody>
 		<% for(Product product: businessProductList) { %>
 					<tr>
+							<td><a href="/sukkiriShop/ProductChangeFormServlet?productID=<%= product.getProductID()%>"><img class="img100" src="/sukkiriShop/uploadImage/<%= product.getProductImage() %>"/></a></td>
 							<td><a href="/sukkiriShop/ProductChangeFormServlet?productID=<%= product.getProductID()%>"><%= product.getProductName() %></a></td>
 							<td><%= product.getProductPrice() %></td>
 							<td><%= product.getProductCount() %></td>

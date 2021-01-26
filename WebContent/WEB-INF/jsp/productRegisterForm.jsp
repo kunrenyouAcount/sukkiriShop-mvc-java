@@ -12,7 +12,7 @@
 <body>
 <div class="container" >
 <h1>商品登録</h1>
-<form action="/sukkiriShop/ProductRegisterFormServlet" method="post" class="greenborder">
+<form action="/sukkiriShop/ProductRegisterFormServlet" enctype="multipart/form-data" method="post" class="greenborder">
 	<div class="form-group">
 		<label><dl>
 			<dt>商品名：</dt>
@@ -53,6 +53,16 @@
 			<dd><small class="form-text text-muted">
 				・文字数<br />
 				　<b>1文字以上200文字以下で入力してください</b><br />
+			</small></dd>
+		</dl></label>
+	</div>
+	<div class="form-group">
+		<label><dl>
+			<dt>画像：</dt>
+			<dd><input type="file" name="productImage"></dd>
+			<dd><small class="form-text text-muted">
+				・形式(以下の形式のもの以外は保存できません)<br />
+				　<b>.jpg/.jpeg/.png/.gif</b><br />
 			</small></dd>
 		</dl></label>
 	</div>

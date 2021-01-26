@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import model.Product;
 import model.ProductGetLogic;
@@ -61,6 +62,11 @@ public class ProductChangeFormServlet extends HttpServlet {
 		int productPrice = Integer.parseInt(productPriceString);
 		int productCount = Integer.parseInt(productCountString);
 
+		//画像ファイルのアップロード処理
+		Part part = request.getPart("productImage");
+        String productImageName = this.getFileName(part);
+        part.write("/Users/koyamatakumi/git/sukkiriShop/WebContent/uploadImage/" + productImageName);
+
 		//正規表現でチェック
 
 		//製品情報をbusinessIDと付随して確認画面で表示する
@@ -82,11 +88,26 @@ public class ProductChangeFormServlet extends HttpServlet {
 		if(!product.getProductDescription().equals(productDescription)) {
 			product.setProductDescription(productDescription);
 		};
+		if(!product.getProductImage().equals(productImageName)) {
+			product.setProductImage(productImageName);
+		};
+
 		session.setAttribute("product", product);
 
 		//確認画面にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/productChangeCheck.jsp");
 		dispatcher.forward(request, response);
 	}
+    private String getFileName(Part part) {
+        String productImageName = null;
+        for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
+            if (dispotion.trim().startsWith("filename")) {
+            	productImageName = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
+            	productImageName = productImageName.substring(productImageName.lastIndexOf("\\") + 1);
+                break;
+            }
+        }
+        return productImageName;
+    }
 
 }

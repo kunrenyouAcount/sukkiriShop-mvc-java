@@ -4,15 +4,18 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import model.Product;
 
 @WebServlet("/ProductRegisterFormServlet")
+@MultipartConfig(location="/Users/koyamatakumi/git/sukkiriShop/WebContent/uploadImage", maxFileSize=1048576)
 public class ProductRegisterFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -47,12 +50,17 @@ public class ProductRegisterFormServlet extends HttpServlet {
 		int productPrice = Integer.parseInt(productPriceString);
 		int productCount = Integer.parseInt(productCountString);
 
+		//画像ファイルのアップロード処理
+		Part part = request.getPart("productImage");
+        String productImageName = this.getFileName(part);
+        part.write("/Users/koyamatakumi/git/sukkiriShop/WebContent/uploadImage/" + productImageName);
+
 		//正規表現でチェック
 
 		//製品情報をbusinessIDと付随して確認画面で表示する
 		HttpSession session = request.getSession();
 		String businessID = (String) session.getAttribute("businessID");
-		Product product = new Product(productName, productPrice, productCount, productDescription, businessID);
+		Product product = new Product(productName, productPrice, productCount, productDescription, productImageName, businessID);
 		session.setAttribute("product", product);
 
 		//確認画面にフォワード
@@ -60,4 +68,15 @@ public class ProductRegisterFormServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+    private String getFileName(Part part) {
+        String productImageName = null;
+        for (String dispotion : part.getHeader("Content-Disposition").split(";")) {
+            if (dispotion.trim().startsWith("filename")) {
+            	productImageName = dispotion.substring(dispotion.indexOf("=") + 1).replace("\"", "").trim();
+            	productImageName = productImageName.substring(productImageName.lastIndexOf("\\") + 1);
+                break;
+            }
+        }
+        return productImageName;
+    }
 }
