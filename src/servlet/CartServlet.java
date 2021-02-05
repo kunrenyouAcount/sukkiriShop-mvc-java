@@ -20,6 +20,15 @@ public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String deleteNumberString = request.getParameter("deleteNumber");
+		if(deleteNumberString != null) {
+			int deleteNumber = Integer.parseInt(deleteNumberString);
+			HttpSession session = request.getSession();
+			List<Product> cart = (List<Product>) session.getAttribute("cart");
+			cart.remove(deleteNumber);
+			session.setAttribute("cart", cart);
+		}
 		//フォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/cart.jsp");
 		dispatcher.forward(request, response);

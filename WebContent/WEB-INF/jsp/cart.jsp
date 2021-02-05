@@ -20,7 +20,8 @@ List<Product> cart = (List<Product>) session.getAttribute("cart");
 	<p>カートが空です</p>
 	<a href="/sukkiriShop/ProductListServlet"><button class="btn btn-primary">商品を見る</button></a>
 <% } else { %>
-	<table class="table"	>
+	<form action="/sukkiriShop/CartServlet" method="get">
+	<table class="table">
 	<thead>
 	    <tr>
 	      <th scope="col">#</th>
@@ -44,6 +45,7 @@ List<Product> cart = (List<Product>) session.getAttribute("cart");
 			<% int productSumPrice = product.getProductPrice() * product.getProductCount();  %>
 			<td><%= productSumPrice %></td>
 			<% cartSumPrice += productSumPrice; %>
+			<td><button class="btn btn-danger" name="deleteNumber" value="<%=i%>">削除</button></td>
 		</tr>
 	<% } %>
 	<tr class="table-primary">
@@ -52,9 +54,15 @@ List<Product> cart = (List<Product>) session.getAttribute("cart");
 	</tr>
 	</tbody>
 	</table>
+	</form>
 	<a href="/sukkiriShop/PurchaseServlet"><button class="btn btn-primary">購入する</button></a>
 	<a href="/sukkiriShop/ProductListServlet"><button class="btn btn-secondary">続けて商品を見る</button></a>
 <% } %>
 </div>
+<script>
+function deleteProductFromCart() {
+
+}
+</script>
 </body>
 </html>
