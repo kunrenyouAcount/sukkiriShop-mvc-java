@@ -16,7 +16,7 @@ Product product = (Product) session.getAttribute("product");
 <body>
 <div class="container" >
 <h1>商品変更</h1>
-<form action="/sukkiriShop/ProductChangeFormServlet" method="post" class="greenborder">
+<form action="/sukkiriShop/ProductChangeFormServlet" enctype="multipart/form-data" method="post" class="greenborder">
 	<div class="form-group">
 		<label><dl>
 			<dt>商品名：</dt>
@@ -31,7 +31,7 @@ Product product = (Product) session.getAttribute("product");
 	<div class="form-group">
 		<label><dl>
 			<dt>単価：</dt>
-			<dd><input type="number" min="0" class="form-control" placeholder="必須項目です" name="productPrice" pattern="^([1-9][0-9]*)$" required value="<%= product.getProductPrice() %>"></dd>
+			<dd><input type="number" class="form-control" placeholder="必須項目です" name="productPrice" pattern="^([1-9][0-9]*)$" required value="<%= product.getProductPrice() %>"></dd>
 			<dd><small class="form-text text-muted">
 				・使用可能文字<br/>
 				　- 半角数字(0～9)
@@ -68,7 +68,7 @@ Product product = (Product) session.getAttribute("product");
 	<div class="form-group">
 		<label><dl>
 			<dt>画像：</dt>
-			<dd><input type="file" name="productImage"></dd>
+			<dd><input type="file" name="productImage" value="<%= product.getProductImage() %>"></dd>
 			<dd><small class="form-text text-muted">
 				・形式(以下の形式のもの以外は保存できません)<br />
 				　<b>.jpg/.jpeg/.png/.gif</b><br />

@@ -16,8 +16,8 @@ public class UserDAO {
 
 	//データベース接続情報
 	final String JDBC_URL = "jdbc:mysql://" + servername + "/" + databasename + "?serverTimeZone=JST";
-	final String DB_USER = "root";
-	final String DB_PASS = "";
+	final String DB_USER = "user";
+	final String DB_PASS = "password";
 
 	//ログイン情報でアカウントが見つかるか検索
 	public User selectByLogin(Login login) {
